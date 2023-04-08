@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farmers b2b site</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <links
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="img/style.css" />
+    
+<!---{% load static %}--->
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'farmer.css' %}">
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav-bar clearfix">
+        <div class="logo">
+          <a href="#">STUBBLES</a>
+        </div>
+        <ul class="nav-items">
+          <li>
+            <i class="fa fa-search search"></i>
+          </li>
+          <li>
+            <a href="">Home</a>
+          </li>
+          <li>
+            <a href="viewStuble">Stubbles</a>
+          </li>
+          <li>
+            <a href="toolsRequired">Tools Required</a>
+          </li>
+        
+          
+          <li>
+            <a href="contact">Help</a>
+          </li>
+          
+            
+          
+           
+            
+         
+          <li class="cart">
+            <a href="{% url 'wallet' farmer.aadhar_number %}"
+              ><span class="cart-1">Wallet/rs 0.00</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'logout' %}">Logout</a>
+              
+            
+          </li>
+          
+        </ul>
+      </nav>
+      <div class="nav-content container-fluid">
+        <div class="content">
+          <h6>{{farmer.name}}</h6>
+          <h6>Trade Stubbles, earn and save planet !</h6>
+          <h2>
+                The ONE PLACE FOR STUBBLES SOLUTIONS
+          </h2>
+          <p class="header_content" style="color:black">
+            Hi {{farmer.name}},
+            FOR FARMERS:YOUR STUBBLES OUR SOLUTION...SELL YOUR STUBBLES AT BEST PRICE.
+            FOR BUYERS:STUBBLES AT YOUR END...GUARENTEED ON TIME AND RESONABLE AMOUNT.
+          </p>
+          <br />
+          
+          <a class="btn btn-primary" href="addStuble" farmer.aadhar_number >Add Stubble</a>
+          <br>
+          <br>
+          <a class="btn btn-primary" href="viewStuble" farmer.aadhar_number >View Stubble</a>
+          
+          </div>
+          </div>
+          </header>
+          <br/>
+         
+  </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+    <script src="jquery.js"></script>
+  </body>
+</html>

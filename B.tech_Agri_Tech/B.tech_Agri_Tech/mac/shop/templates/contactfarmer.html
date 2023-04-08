@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'contact.css' %}">
+</head>
+<body>
+    <div class="container-fluid">
+        <center>
+    <h1>Contact Form</h1>
+    </center>
+    <hr/>
+    <div class="container">
+    <form method="post" action="{% url 'contact_formfarmer' farmer.aadhar_number %}" style="padding-top:100px;font-size: large;padding-left: 500px;">
+        {% if messages %}
+        {% for msg in messages %}
+        <p>{{msg}}</p>
+        {% endfor %}
+    {% endif %}
+    {% csrf_token %}
+    <table border="1" cellpadding="5">
+            <tr style="height:80px;">
+                <th>Full Name</th>
+                <td><input type="text" name="full_name" /></td>
+            </tr>
+            <tr style="height:80px;">
+                <th>Email</th> 
+                <td><input type="email" name="email" /></td>
+            </tr>
+            <tr style="height:80px;">
+                <th>Message</th>
+                <td>
+                    <textarea name="message"></textarea>
+                </td>
+            </tr>
+            <tr style="height:80px;">
+                <center>
+                    <td colspan="2" style="padding-left:120px;"><input type="submit" value="Submit" /></td>
+                </center>
+            </tr>
+        </table>
+        
+    </form>
+    <br>
+         <input class="btn btn-sm btn-primary" type=button value="Back" onClick="javascript:history.go(-1);" style="margin-left: 620px;">
+         
+    </div>
+    </div>
+    <footer>
+        <p>Author: Hege Refsnes</p>
+        <p><a href="mailto:hege@example.com">hege@example.com</a></p>
+      </footer>
+      
+</body>
+
+</html>

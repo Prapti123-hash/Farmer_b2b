@@ -1,0 +1,32 @@
+/* 
+.container{
+    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fcrop%2Bstubble&psig=AOvVaw3FVWc98Q8q6iZs1W8dLYQ8&ust=1654194591531000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJD3nJrxjPgCFQAAAAAdAAAAABAD');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:200px;
+    height: 100px;
+} */
+.container-fluid{
+    background-image: url("image/istockphoto-1311934969-170667a.jpg");
+     background-size:cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100%;
+    width:100%;
+    position:fixed;
+    background-size: 1800px 900px;
+    color:aliceblue;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+  }
+.container{
+    padding-left:80px;
+}

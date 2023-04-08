@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"rel=”nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'updateStuble.css' %}">
+</head>
+<body class="container-fluid">
+    {% include 'messages.html' %}
+    <h3>Update Stubbles</h3>
+    <br/>
+    {{stuble_list}}
+    <div class="container">
+        <center>
+          <h2>Adding your Stubbles here</h2>
+          <form method="post" action="{% url 'stubbles_form' AddStuble.id %}" class="post-form">
+             {% csrf_token %}
+        <table border="1" cellpadding="5">
+            <input type="hidden" name="stuble_id" id="id" required maxlength="20" value="{{AddStuble.id}}"/>
+            
+          <tr>
+            <th>Name</th>
+            <td><input type="text" name="name" value={{AddStuble.name}}/></td>
+        </tr>
+        <tr>
+            <th>Aadhar Number</th>
+            <td><input type="text" name="aadhar" value={{AddStuble.aadhar_number}}/></td>
+        </tr>
+        <tr>
+            <th>Photo</th> 
+            <td><input type="link" name="photo" value={{AddStuble.photo}}/></td>
+        </tr>
+        <tr>
+            <th>Weight</th>
+            <td>
+                <input type="number" name="weight" value="{{AddStuble.weight}}">
+            </td>
+        </tr>
+        <tr>
+          <th>Type</th>
+          <td>
+              <input type="text" name="type" list="datalistOptions" id="exampleDataList" placeholder="Enter the crop" value="{{AddStuble.type}}">
+              <datalist id="datalistOptions">
+                <option value="WHEAT">
+                <option value="RICE">
+                <option value="MAIZE">
+              </datalist>
+          </td>
+      </tr>
+      <tr>
+        <th>Amount</th>
+        <td>
+            <input type="number" name="amount" value="{{AddStuble.amount}}">
+        </td>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <td>
+          <input type="text" name="location" value="{{AddStuble.location}}">
+      </td>
+    </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Update" /></td>
+        </tr>
+        </table>
+        <input class="btn btn-sm btn-primary" type=button value="Back" onClick="javascript:history.go(-1);">
+        {% if messages %}
+        {% for updaterecord in messages %}
+        <h3 style="color:green">{{updaterecord}}</h3>
+        {% endfor %}
+        {% endif %}
+          </form>
+      </center>
+          </div>
+          
+</body>
+</html>

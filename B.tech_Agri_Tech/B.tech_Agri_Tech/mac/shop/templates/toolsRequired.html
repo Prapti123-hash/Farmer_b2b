@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tools.css' %}">
+</head>
+<body>
+    <div class="container-fluid">
+        <center>
+    <h1>Tools Required</h1>
+    </center>
+    <hr/>
+    <center>
+    <form method="post" action="{% url 'toolsRequired' farmer.aadhar_number %}" style="padding-top:100px;font-size: large;";>
+        {% if messages %}
+        {% for msg in messages %}
+        <p>{{msg}}</p>
+        {% endfor %}
+    {% endif %}
+    {% csrf_token %}
+    <table border="1" cellpadding="5">
+            <tr style="height:80px;">
+                <th>Full Name</th>
+                <td>{{farmer.name}}</td>
+            </tr>
+            <tr style="height:80px;">
+                <th>Aadhar Number</th> 
+                <td>{{farmer.aadhar_number}}</td>
+            </tr>
+            <tr style="height:80px;">
+                <th>Tools Required</th>
+                <td>
+                    <input type="text" name="tools" />
+                </td>
+            </tr>
+            <tr style="height:80px;">
+                <th>Quantity</th>
+                <td>
+                    <input type="number" name="quantity" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding-left:120px;height:30px;"><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <input class="btn btn-sm btn-primary" type=button value="Back" onClick="javascript:history.go(-1);">
+    </center>
+    </div>
+</body>
+</html>

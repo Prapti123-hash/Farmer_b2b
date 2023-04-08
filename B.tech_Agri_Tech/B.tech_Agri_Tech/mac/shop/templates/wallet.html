@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"rel=”nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'buyerView.css' %}">
+</head>
+<body>
+  <div class="container-fluid">
+    <center>
+        <h3>------Stubbles-------</h3>
+    </center>
+    <div class="container">
+        <center>
+          <table class="table table-success table-striped" >
+            <thead>
+              <tr>
+                <th scope="col">Aadhar Number</th>
+                <th scope="col">Amount</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                
+                
+              <tr>
+                
+                <td>{{wallet.aadhar_number}}</td>
+                <td>{{wallet.amount}}</td>
+                
+               
+                
+              </tr>
+              
+            </tbody>
+          </table>
+          <a href="{% url 'farmer' wallet.aadhar_number %}" style="font-size:large" class="btn btn-primary">Back</a>
+          </center>
+          </div>
+          </div>
+</body>
+</html>

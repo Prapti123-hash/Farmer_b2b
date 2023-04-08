@@ -1,0 +1,81 @@
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"rel=”nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<div class="container mt-4">
+    
+    <div class="p-3 m-3">
+
+        
+        <div class="col-lg-5 rounded mx-auto border pt-4">
+            <div class="text-center col">
+            <center>
+                <img
+                src="https://th.bing.com/th/id/Rd51d7c0fde6d96a31538a86cbd57f3c0?rik=%2fTJxRkU2V371QQ&riu=http%3a%2f%2ftechnologyend.com%2fwp-content%2fuploads%2f2015%2f11%2fwhy-shop-online.jpg&ehk=v1KiYT0i5U1ABCRueDSdLqnazh2BdlVD89Z4qXE0Kgs%3d&risl=&pid=ImgRaw" alt=""
+                class="" style="height: 150px;">
+                </center>
+            <!-- <hr> -->
+            <hr>
+            </div>
+            <h3 class="alert alert-success rounded-pill" style="text-align:center">LOGIN</h3>
+            <center>
+            <form action="{% url 'login' %}" method="POST">
+                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- name -->
+                <div class="form-group">
+                    <label for=""> Name</label>
+                    <input type="text" name="name"
+                     id="" value="{{values.name}}" class="form-control form-control-sm" 
+                     placeholder="">
+                </div>
+
+                
+                <!-- Adhar number -->
+                <div class="form-group">
+                    <label for="">AAdhar_number</label>
+                    <input required type="text" name="aadhar_number" id=""
+                    value="{{values.aadhar_number}}" 
+                    class=" form-control-sm form-control" placeholder="000000000000">
+                </div>
+                
+                
+
+                <!-- Catergory -->
+                <div class="form-group">
+                    <label for="">Enter the category</label>
+                    <br/>
+                    <input required type="radio" name="category" id="farmer"
+                    value="farmer">
+                    <label for="farmer">FARMER</label><br>
+                    <input required type="radio" name="category" id="buyer"
+                    value="buyer">
+                    <label for="buyer">BUYER</label><br>
+
+                    
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" 
+                    id=""
+                    class="form-control form-control-sm">
+                </div>
+
+                
+                <hr>
+                <button type="submit" class="btn btn-sm btn-success col-lg-12">Login</button>
+                
+            </form>
+        </center>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

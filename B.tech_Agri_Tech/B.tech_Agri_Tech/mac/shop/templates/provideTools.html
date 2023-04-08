@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provide tools Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tools.css' %}">
+</head>
+<body>
+    
+    <div class="container-fluid">
+        
+        <center>
+                <h1>PROVIDE TOOLS</h1>
+    <hr/>
+    <form method="post" action="{% url 'provide_tools' %}"  style="padding-top:100px;font-size: large;">
+        {% if messages %}
+        {% for msg in messages %}
+        <p>{{msg}}</p>
+        {% endfor %}
+    {% endif %}
+    {% csrf_token %}
+    <table border="1" cellpadding="5" style="width:300px;">
+            <tr style="height:80px;">
+                <th>Full Name</th>
+                <td><input type="text" name="full_name" /></td>
+            </tr>
+            <tr style="height:80px;">
+                <th>Aadhar Number</th> 
+                <td><input type="number" name="aadhar" /></td>
+            </tr>
+            <tr style="height:80px;">
+                <th>Provide Tools</th>
+                <td>
+                    <input type="text" name="tools" />
+                </td>
+            </tr>
+            <tr style="height:80px;">
+                <th>Quantity</th>
+                <td>
+                    <input type="number" name="quantity" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding-left:120px;height:30px;"><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+        <br>
+        
+    </form>
+    <input class="btn btn-sm btn-primary" type=button value="Back" onClick="javascript:history.go(-1);">
+    </center>
+    </div>
+</body>
+</html>

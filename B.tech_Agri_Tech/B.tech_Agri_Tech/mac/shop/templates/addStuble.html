@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"rel=”nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Add Stubble</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'AddStuble.css' %}">
+  
+</head>
+<body>
+  <div class="container-fluid">
+    
+      <div class="container" style="padding-top: 100px;">
+      <h2>Adding your Stubbles here</h2>
+      {{id}}
+      <form method="post" action="{% url 'addStuble' farmer.aadhar_number %}" style="padding-left:10px;">
+        {% if messages %}
+        {% for msg in messages %}
+        <p>{{msg}}</p>
+        {% endfor %}
+    {% endif %}
+    {% csrf_token %}
+    <table border="1" cellpadding="5">
+      <tr style="height:60px;">
+        <th style="color: aliceblue;">AADhar</th>
+        <td>{{farmer.aadhar_number}}</td>
+    </tr>
+      <tr style="height:60px;">
+        <th style="color: aliceblue;">Name</th>
+        <td><input type="text" name="name" /></td>
+    </tr>
+    <tr style="height:60px;">
+        <th style="color: aliceblue;">Photo</th> 
+        <td><input type="link" name="photo" /></td>
+    </tr>
+    <tr style="height:60px;">
+        <th style="color: aliceblue;">Weight</th>
+        <td>
+            <input type="number" name="weight">
+        </td>
+    </tr>
+    <tr style="height:60px;">
+      <th style="color: aliceblue;">Type</th>
+      <td>
+          <input type="text" name="type" list="datalistOptions" id="exampleDataList" placeholder="Enter the crop">
+          <datalist id="datalistOptions">
+            <option value="WHEAT">
+            <option value="RICE">
+            <option value="MAIZE">
+          </datalist>
+      </td>
+  </tr>
+  <tr style="height:60px;">
+    <th style="color: aliceblue;">Amount</th>
+    <td>
+        <input type="number" name="amount">
+    </td>
+</tr>
+<tr style="height:60px;">
+  <th style="color: aliceblue;">Location</th>
+  <td>
+      <input type="text" name="location">
+  </td>
+</tr>
+    <tr style="height:60px;">
+        <td colspan="2" style="padding-left:120px;"><input type="submit" value="Submit" /></td>
+    </tr>
+</table>
+      </form>
+        <br>
+        <input class="btn btn-sm btn-primary" type=button value="Back" onClick="javascript:history.go(-1);">
+      
+      </div>
+  
+      </div>
+      
+</body>
+</html>

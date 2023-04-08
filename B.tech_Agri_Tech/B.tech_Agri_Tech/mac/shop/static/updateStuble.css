@@ -1,0 +1,12 @@
+.container-fluid{
+    background-image: url("image/straw-bales-stubble-summer-straw-preview.jpg");
+     background-size:cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100%;
+    width:100%;
+    position:fixed;
+    background-size: 1800px 900px;
+    
+}

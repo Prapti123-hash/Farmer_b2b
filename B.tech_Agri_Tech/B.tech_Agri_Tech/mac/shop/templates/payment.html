@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Payment Checkout Form</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
+	{% load static %}
+    <link rel="stylesheet" href="{% static 'payment.css' %}">
+    {% include 'messages.html' %}
+</head>
+<body style="background-color:red;color:black;">
+	
+
+
+<div class="wrapper">
+  <div class="payment">
+    {% include 'messages.html' %}
+    <div class="payment-logo">
+      
+    </div>
+    
+    
+    <h2>Payment Gateway</h2>
+    <form method="POST" action="{% url 'payment_done' %}">
+      {% if messages %}
+        {% for msg in messages %}
+        <p>{{msg}}</p>
+        {% endfor %}
+    {% endif %}
+    {% csrf_token %}
+    <div>
+      <div class="card space icon-relative">
+        <label class="label" style="color:black">Card holder:</label>
+        <input type="text" class="input" placeholder="Name" name="Card_holder">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="card space icon-relative">
+        <label class="label" style="color:black">Card number:</label>
+        <input type="text" class="input" data-mask="0000 0000 0000 0000" placeholder="Card Number" name="Card_Number">
+        <i class="far fa-credit-card"></i>
+      </div>
+      <div class="card-grp space">
+        <div class="card-item icon-relative">
+          <label class="label" style="color:black">Expiry date:</label>
+          <input type="text" name="expiry_data" class="input" data-mask="00 / 00"  placeholder="00 / 00">
+          <i class="far fa-calendar-alt"></i>
+        </div>
+        <div class="card-item icon-relative">
+          <label class="label">CVC:</label>
+          <input type="text" class="input" data-mask="000" placeholder="000" name="CVC">
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
+        <div class="submit" style="padding-left: 100px;">
+      <input type="Submit" value="Submit" class="btn btn-success"/>
+      </div>
+      </div> 
+      <br>
+    
+    </div>
+    </div>
+    </form>
+    <br>
+   
+    
+  </div>
+</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+</body>
+</html>
+
+   
